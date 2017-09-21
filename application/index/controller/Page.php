@@ -3,7 +3,7 @@ namespace app\index\controller;
 
 class Page extends Base
 {
-    public function page()
+    public function index()
     {
         return $this->fetch();
     }

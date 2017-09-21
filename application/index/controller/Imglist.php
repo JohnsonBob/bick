@@ -3,7 +3,7 @@ namespace app\index\controller;
 
 class Imglist extends Base
 {
-    public function imglist()
+    public function index()
     {
         return $this->fetch();
     }

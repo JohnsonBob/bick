@@ -3,7 +3,7 @@ namespace app\index\controller;
 
 class Artlist extends Base
 {
-    public function artlist()
+    public function index()
     {
         return $this->fetch();
     }

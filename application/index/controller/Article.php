@@ -3,7 +3,7 @@ namespace app\index\controller;
 
 class Article extends Base
 {
-    public function article()
+    public function index()
     {
         return $this->fetch();
     }
