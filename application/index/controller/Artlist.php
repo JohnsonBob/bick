@@ -1,9 +1,9 @@
 <?php
 namespace app\index\controller;
 
-class Index extends Base
+class Artlist extends Base
 {
-    public function index()
+    public function artlist()
     {
         return $this->fetch();
     }

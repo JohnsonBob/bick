@@ -6,22 +6,18 @@ class Admin extends Base
 {
     public function lst()
     {
-        return view();
+        return $this->fetch();
     }
 
     public function add()
     {
-        return view();
+        return $this->fetch();
     }
 
     public function edit()
     {
-        return view();
-    }
-
-    public function test()
-    {
         return $this->fetch();
     }
+
 
 }

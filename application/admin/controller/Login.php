@@ -1,8 +1,8 @@
 <?php
 namespace app\admin\controller;
-class Index extends Base
+class Login extends Base
 {
-    public function index()
+    public function login()
     {
         return $this->fetch();
     }
