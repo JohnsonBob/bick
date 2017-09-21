@@ -30,7 +30,7 @@ return [
         '__dir__'    => [ 'controller', 'model', 'view'],
         'controller' => ['Index'],
         'model'      => [],
-        'view'       => ['index'],
+        'view'       => ['index/index'],
     ],
 
 ];
