@@ -1,14 +1,27 @@
 <?php
+
 namespace app\admin\controller;
 
-class Admin{
-    public function lst(){
+class Admin extends Base
+{
+    public function lst()
+    {
         return view();
     }
-    public function add(){
+
+    public function add()
+    {
         return view();
     }
-    public function edit(){
+
+    public function edit()
+    {
         return view();
     }
+
+    public function test()
+    {
+        return $this->fetch();
+    }
+
 }
