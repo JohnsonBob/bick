@@ -52,5 +52,10 @@ class Admin extends Base
         return $this->fetch();
     }
 
+    public function logout(){
+        session(null);
+        $this->success('退出系统成功',url('login/index'));
+    }
+
 
 }
