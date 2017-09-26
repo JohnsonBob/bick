@@ -15,19 +15,22 @@ class Cate extends Base
 
     public function lst()
     {
-        $admin = model('cate');
-        $res = $admin->getAdmin();
+        $cate = model('cate');
+        $data = $cate->getCate();
+        $res= $cate->sort($data);
 //        dump($res) ;
 //        die();
-        $this->assign('adminres',$res);
+        $this->assign('cateres',$res);
 
         return $this->fetch();
     }
 
     public function add(){
+        $cate = model('cate');
         if($_POST){
             //var_dump($_POST);
-            $cate = model('cate');
+//            dump(input('post.'));
+//            die();
             if($cate->addCate(input('post.'))){
                 $this->success('栏目添加成功',url('lst'));
             }else{
@@ -36,6 +39,9 @@ class Cate extends Base
             }
             return;
         }
+        $res = $cate->getCate();
+        $this->assign('cateres',$res);
+
         return $this->fetch();
     }
 

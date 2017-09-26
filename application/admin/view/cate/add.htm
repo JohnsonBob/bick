@@ -64,6 +64,9 @@
                                             <div class="col-sm-6">
                                                 <select name="pid">
                                                     <option value="0">顶级栏目</option>
+                                                    {volist name='cateres' id='cate'}
+                                                    <option value="{$cate.id}">{$cate.catename}</option>
+                                                    {/volist}
                                                 </select>
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
