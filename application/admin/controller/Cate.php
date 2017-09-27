@@ -39,7 +39,8 @@ class Cate extends Base
             }
             return;
         }
-        $res = $cate->getCate();
+        $data = $cate->getCate();
+        $res= $cate->sort($data);
         $this->assign('cateres',$res);
 
         return $this->fetch();
