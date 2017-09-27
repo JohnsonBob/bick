@@ -46,4 +46,15 @@ class Cate extends Base
         return $this->fetch();
     }
 
+    public function del(){
+        dump($_POST);
+    }
+
+    public function edit($id){
+        if($_POST){
+            dump($_POST);
+        }
+    }
+
+
 }
