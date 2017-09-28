@@ -65,4 +65,6 @@ class Cate extends Model
             }
         }
     }
+
+
 }

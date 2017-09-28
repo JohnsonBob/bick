@@ -70,7 +70,7 @@ class Cate extends Base
         }
         //die();
         $cate = db('cate')->find($id);
-        $this->assign('cateres',$cate);
+        $this->assign('cate',$cate);
         return $this->fetch();
     }
 
