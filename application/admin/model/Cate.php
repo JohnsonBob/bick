@@ -5,8 +5,6 @@ use think\Model;
 
 class Cate extends Model
 {
-    //protected $table = 'bk_admin';
-
     public  function getCate(){
         return $this->select();
     }
@@ -38,19 +36,6 @@ class Cate extends Model
                 $this->sort($data,$value['id'],$level+1);
             }
         }
-
-       //dump($arr);
-//        die();
-        return $arr;
-
-       /* static $arr=array();
-        foreach ($data as $k => $v) {
-            if($v['pid']==$pid){
-                $v['level']=$level;
-                $arr[]=$v;
-                $this->sort($data,$v['id'],$level+1);
-            }
-        }*/
         return $arr;
     }
 
@@ -63,5 +48,21 @@ class Cate extends Model
         }
        $res = $this->where('id','=',$id)->delete();
         return $res;
+    }
+
+
+    /**
+     *删除需要删除条目的子栏目
+     */
+    public function delList($data,$id = 0){
+        //static $arr =array();
+        if(is_array($data) || !empty($data) || !empty($id)){
+            foreach ($data as $key => $value) {
+                if($value['pid']==$id){
+                    $this->delList($data,$value['id']);
+                    $this->where('id','=',$value['id'])->delete();
+                }
+            }
+        }
     }
 }
