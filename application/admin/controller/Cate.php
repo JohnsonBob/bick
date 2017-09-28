@@ -46,14 +46,25 @@ class Cate extends Base
         return $this->fetch();
     }
 
-    public function del(){
-        dump($_POST);
+    public function del($id){
+        $cate = model('cate');
+        if($cate->del($id)){
+            $this->success('栏目删除成功',url('lst'));
+        }else{
+            $this->error('栏目删除失败',url('lst'));
+        }
     }
 
     public function edit($id){
+        dump($id);
         if($_POST){
             dump($_POST);
+            return;
         }
+        //die();
+        $cate = db('cate')->find($id);
+        $this->assign('cateres',$cate);
+        return $this->fetch();
     }
 
 

@@ -54,5 +54,14 @@ class Cate extends Model
         return $arr;
     }
 
-
+    /**
+     *  删除id为的条目
+     */
+    public  function del($id){
+        if(empty($id)){
+            return 0;
+        }
+       $res = $this->where('id','=',$id)->delete();
+        return $res;
+    }
 }
