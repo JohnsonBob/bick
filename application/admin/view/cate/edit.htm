@@ -63,7 +63,7 @@
                                                    class="col-sm-2 control-label no-padding-right">上级栏目</label>
                                             <div class="col-sm-6">
                                                 <select name="pid">
-                                                    <option id='cate' value="{$cate.id}">{$cate.catename}</option>
+                                                    <option id='cate' value="{$cate.id}">{$cate.fatherName}</option>
 
                                                 </select>
                                             </div>
@@ -73,7 +73,7 @@
                                             <label for="username"
                                                    class="col-sm-2 control-label no-padding-right">栏目名称</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" placeholder="" name="catename" required=""
+                                                <input class="form-control" placeholder="" value="{$cate.catename}" name="catename" required=""
                                                        type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>

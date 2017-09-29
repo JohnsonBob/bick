@@ -63,13 +63,19 @@ class Cate extends Base
     }
 
     public function edit($id){
-        dump($id);
+        //dump($id);
         if($_POST){
             dump($_POST);
             return;
         }
         //die();
-        $cate = db('cate')->find($id);
+        $cate = db('cate')->where('id',$id)->find();
+        $father = db('cate')->where('id',$cate['pid'])->find();
+        if(!$father){
+            $cate['fatherName'] = "顶级栏目";
+        }else{
+            $cate['fatherName'] = $father['catename'];
+        }
         $this->assign('cate',$cate);
         return $this->fetch();
     }
