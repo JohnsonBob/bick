@@ -28,7 +28,7 @@ class Cate extends Base
 //        dump($res) ;
 //        die();
         $this->assign('cateres',$res);
-
+        //dump($res);die();
         return $this->fetch();
     }
 
@@ -62,14 +62,19 @@ class Cate extends Base
         }
     }
 
-    public function edit($id){
-        //dump($id);
+    public function edit(){
         if($_POST){
-            dump($_POST);
+            $cate = model('cate');
+//            dump(input('post.'));die();
+            if($cate->editCate(input('post.'))){
+                $this->success('栏目修改成功',url('lst'));
+            }else{
+                $this->error('管栏目修改失败',url('lst'));
+            }
             return;
         }
         //die();
-        $cate = db('cate')->where('id',$id)->find();
+        $cate = db('cate')->where('id',input('id'))->find();
         $father = db('cate')->where('id',$cate['pid'])->find();
         if(!$father){
             $cate['fatherName'] = "顶级栏目";

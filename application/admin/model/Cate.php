@@ -66,5 +66,28 @@ class Cate extends Model
         }
     }
 
+    /**
+     * 修改栏目信息
+     * @param $data
+     * @return bool
+     */
+    public function editCate($data){
+        if(empty($data) || !is_array($data)){
+            return false;
+        }
+        $old = $this->where('id','=',$data['id'])->find();
+        if($old['catename'] == $data['catename'] && $old['type'] == $data['type'] && $old['id'] == $data['id']){
+            return true;
+        }
+        $res = $this->save([
+            'catename'  => $data['catename'],
+            'type' => $data['type']
+        ],['id' => $data['id']]);
+        if($res){
+            return true;
+        }
+        return false;
+    }
+
 
 }

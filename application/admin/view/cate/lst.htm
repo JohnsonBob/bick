@@ -68,7 +68,7 @@
                                         <tr>
                                             <td align="center"style="width: 10%">{$cate.id}</td>
                                             <td align="">{if condition="$cate['level'] neq 0"}|{/if}<?php echo str_repeat('-',$cate['level']*8)?>{$cate.catename}</td>
-                                            <td align="center" style="width: 10%">{if condition="$cate['level'] neq 1"}列表{else/}单页{/if}</td>
+                                            <td align="center" style="width: 10%">{if condition="$cate['type'] eq 1"}列表{else/}单页{/if}</td>
                                             <td align="center" style="width: 20%">
                                                 <a href="{:url('edit',array('id'=>$cate['id']))}"
                                                    class="btn btn-primary btn-sm shiny">

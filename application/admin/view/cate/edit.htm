@@ -62,7 +62,7 @@
                                             <label for="username"
                                                    class="col-sm-2 control-label no-padding-right">上级栏目</label>
                                             <div class="col-sm-6">
-                                                <select name="pid">
+                                                <select name="id">
                                                     <option id='cate' value="{$cate.id}">{$cate.fatherName}</option>
 
                                                 </select>
@@ -85,13 +85,13 @@
                                             <div class="col-sm-6">
                                                 <div class="radio" style="float: left; margin-right: 20px;">
                                                     <label>
-                                                        <input name="type" type="radio" checked="checked" value="1">
+                                                        <input name="type" type="radio" {if condition="$cate['type'] eq 1"}checked="checked"{/if} value="1">
                                                         <span class="text">列表 </span>
                                                     </label>
                                                 </div>
                                                 <div class="radio" style="float: left">
                                                     <label>
-                                                        <input name="type" type="radio" class="inverted" value="2">
+                                                        <input name="type" type="radio" {if condition="$cate['type'] eq 2"}checked="checked"{/if} class="inverted" value="2">
                                                         <span class="text">单页</span>
                                                     </label>
                                                 </div>
