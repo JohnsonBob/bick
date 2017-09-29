@@ -76,11 +76,12 @@ class Cate extends Model
             return false;
         }
         $old = $this->where('id','=',$data['id'])->find();
-        if($old['catename'] == $data['catename'] && $old['type'] == $data['type'] && $old['id'] == $data['id']){
+        if($old['catename'] == $data['catename'] && $old['type'] == $data['type'] && $old['id'] == $data['id'] && $old['pid'] == $data['pid']){
             return true;
         }
         $res = $this->save([
             'catename'  => $data['catename'],
+            'pid'  => $data['pid'],
             'type' => $data['type']
         ],['id' => $data['id']]);
         if($res){

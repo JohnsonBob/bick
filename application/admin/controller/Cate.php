@@ -63,8 +63,8 @@ class Cate extends Base
     }
 
     public function edit(){
+        $cate = model('cate');
         if($_POST){
-            $cate = model('cate');
 //            dump(input('post.'));die();
             if($cate->editCate(input('post.'))){
                 $this->success('栏目修改成功',url('lst'));
@@ -74,14 +74,13 @@ class Cate extends Base
             return;
         }
         //die();
-        $cate = db('cate')->where('id',input('id'))->find();
-        $father = db('cate')->where('id',$cate['pid'])->find();
-        if(!$father){
-            $cate['fatherName'] = "顶级栏目";
-        }else{
-            $cate['fatherName'] = $father['catename'];
-        }
-        $this->assign('cate',$cate);
+        $cates = db('cate')->where('id',input('id'))->find();
+        $data = $cate->getCate();
+        $res= $cate->sort($data);
+        $this->assign(array(
+            'cate' => $cates,
+            'cateres' => $res
+        ));
         return $this->fetch();
     }
 
