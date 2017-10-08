@@ -13,6 +13,9 @@ class Article extends Model
         //TODO:自定义的初始化
     }
 
+    /**
+     * 在添加数据库之前上传图片
+     */
     protected static function init()
     {
         parent::init();
@@ -45,4 +48,12 @@ class Article extends Model
         return false;
     }
 
+
+
+    /**
+     *获取文章列表
+     */
+    public function getArticle(){
+        return  $res=$this->field('a.*,b.catename')->alias('a')->join('bk_cate b','a.cateid=b.id')->paginate(5);
+    }
 }

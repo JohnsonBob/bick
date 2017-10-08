@@ -13,6 +13,11 @@ class Article extends Base
 
     public function lst()
     {
+        $article = model('article');
+//        $res= db('article')->field('a.*,b.catename')->alias('a')->join('bk_cate b','a.cateid=b.id')->paginate(5);
+        $res = $article->getArticle();
+        //dump($res);die();
+        $this->assign('articles',$res);
         return $this->fetch();
     }
 
