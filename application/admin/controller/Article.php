@@ -49,5 +49,15 @@ class Article extends Base
         return $this->fetch();
     }
 
+    public function del(){
+        if(input('id')){
+            $cate = model('article');
+            if($cate->del(input('id'))){
+                $this->success('文章删除成功',url('lst'));
+            }else{
+                $this->error('文章删除失败',url('lst'));
+            }
+        }
+    }
 
 }

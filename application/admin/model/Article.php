@@ -56,4 +56,17 @@ class Article extends Model
     public function getArticle(){
         return  $res=$this->field('a.*,b.catename')->alias('a')->join('bk_cate b','a.cateid=b.id')->paginate(5);
     }
+
+    /**
+     *  删除id为的文章
+     */
+    public  function del($id){
+        if(empty($id)){
+            return 0;
+        }
+        $res = $this->where('id','=',$id)->delete();
+        return $res;
+    }
+
+
 }
