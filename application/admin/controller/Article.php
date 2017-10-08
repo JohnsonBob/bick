@@ -19,15 +19,16 @@ class Article extends Base
     public function add()
     {
         $cate = model('cate');
+        $article = model('article');
         if($_POST){
             //var_dump($_POST);
 //            dump(input('post.'));
 //            die();
-            if($cate->addCate(input('post.'))){
-                $this->success('栏目添加成功',url('lst'),'','1');
+            if($article->addArticle(input('post.'))){
+                $this->success('文章添加成功',url('lst'),'','1');
             }else{
 
-                $this->error('栏目添加失败',url('add'));
+                $this->error('文章添加失败',url('add'));
             }
             return;
         }
