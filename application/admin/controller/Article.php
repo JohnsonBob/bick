@@ -46,6 +46,29 @@ class Article extends Base
 
     public function edit()
     {
+        $cate = model('cate');
+        $article = model('article');
+        if($_POST){
+            //var_dump($_POST);
+//            dump(input('post.'));
+//            die();
+            if($article->addArticle(input('post.'))){
+                $this->success('文章修改成功',url('lst'),'','1');
+            }else{
+
+                $this->error('文章修改失败',url('add'));
+            }
+            return;
+        }
+        $articles = db('article')->field('a.*,b.catename')->alias('a')->join('bk_cate b','a.cateid=b.id')->where('a.id',input('id'))->find();
+        $data = $cate->getCate();
+        $res= $cate->sort($data);
+        $this->assign('cateres',$res);
+        $this->assign(array(
+            'article' => $articles,
+            'cateres' => $res
+        ));
+
         return $this->fetch();
     }
 
