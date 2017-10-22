@@ -13,7 +13,12 @@ class Login extends Base
         if($_POST){
             $login = model('login');
             //dump($login->login(input('post.')));
-            //dump(input('post.'));
+//            dump(input('post.'));
+//            die();
+            if(!captcha_check(input('post.')['code'])){
+                //验证失败
+                $this->error('验证码错误，请重新输入！');
+            };
             switch ($login->login(input('post.'))){
                 case 0:
                     $this->error('用户不存在，请重新输入！');

@@ -113,7 +113,6 @@
                                                    class="col-sm-2 control-label no-padding-right">所属栏目</label>
                                             <div class="col-sm-6">
                                                 <select name="cateid">
-                                                    <option value="0">顶级栏目</option>
                                                     {volist name='cateres' id='cate'}
                                                     <option value="{$cate.id}">{if condition="$cate['level'] neq 0"}|{/if}<?php echo str_repeat('-',$cate['level']*4)?>{$cate.catename}</option>
                                                     {/volist}

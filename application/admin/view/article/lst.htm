@@ -70,13 +70,16 @@
                                         <tr>
                                             <td align="center">{$article.id}</td>
                                             <td align="center"><?php echo mb_substr($article['title'],0,80);if(strlen($article['title'])>80) echo '...';?></td>
-                                            <td align="center"><?php
-                                         if(empty($article['thumb'])){
-                                            echo '暂无缩略图';
-                                         }else{
-                                            echo '<img src="'.$article['thumb'].'" height="40">';
-                                         }
-                                         ?></td>
+                                            <td align="center">
+                                                <?php
+                                            $path = $_SERVER['DOCUMENT_ROOT'].$article['thumb'];
+                                            $res = file_exists($path);
+                                            if(!$res || empty($article['thumb'])){
+                                                echo '暂无缩略图';
+                                            }else{
+                                                echo '<img src="'.$article['thumb'].'" height="40">';
+                                                }?>
+                                            </td>
                                             <td align="center">{$article.author}</td>
                                             <td align="center">{$article.catename}</td>
                                             <td align="center">
